@@ -6,6 +6,7 @@ import (
 	"tsEngine/tsString"
 )
 
+// 現在時間 (伺服器時區)
 func MakeCurrTime() time.Time {
 	return time.Now()
 }
@@ -14,28 +15,28 @@ func MakeTimeSe(se int) time.Time {
 	return time.Unix(int64(se), 0)
 }
 
-// 毫秒时间
-func CurrMs() uint64 {
-	curr_ms := time.Now().UnixNano()
-	curr_ms = curr_ms / 1000000
-	return uint64(curr_ms)
+// 秒时间(10碼)
+func TimeNow10() int64 {
+	return time.Now().Unix()
 }
 
-// 微秒时间
-func CurrUs() uint64 {
-	curr_ms := time.Now().UnixNano()
-	curr_ms = curr_ms / 1000
-	return uint64(curr_ms)
+// 毫秒时间(13碼)
+func TimeNow13() int64 {
+	return time.Now().UnixMilli()
 }
 
-// 纳秒时间
-func CurrNs() uint64 {
-	curr_ms := time.Now().UnixNano()
-	return uint64(curr_ms)
+// 微秒时间(16碼)
+func TimeNow16() int64 {
+	return time.Now().UnixMicro()
+}
+
+// 纳秒时间(19碼)
+func TimeNow19() int64 {
+	return time.Now().UnixNano()
 }
 
 func CurrMsToString() string {
-	return tsString.FromInt64(int64(CurrMs()))
+	return tsString.FromInt64(TimeNow13())
 }
 
 // 当地时区 0点 对应 utc时间戳
