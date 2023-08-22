@@ -2,6 +2,7 @@ package tsString
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"math"
@@ -138,53 +139,41 @@ func Substr(str string, start, length int) string {
 	return string(rs[start:end])
 }
 
-// 测试通过int，原来的ToInt测试有问题 2022-03-04
-func ToIntV2(str string) int {
-	num, err := strconv.ParseInt(str, 10, 32)
-	if err != nil {
-		return 0
-	}
-
-	return int(num)
+// 轉換 文字轉浮點數
+func StringToFloat64(info string) float64 {
+	tmp, _ := strconv.ParseFloat(info, 64)
+	return tmp
 }
 
-// 要转换的字符串，开始位置，长度
-func ToInt(str string, sub ...int) int {
-	//start := 0
-	//length := len(str)
-	//if len(sub) == 2 {
-	//	start = sub[0]
-	//	length = sub[1]
-	//}
-	//
-	//num, err := strconv.ParseFloat(Substr(str, start, length), 32)
-	//if err != nil {
-	//	return 0
-	//}
-	//return int(num)
-
-	num, err := strconv.ParseInt(str, 10, 32)
-	if err != nil {
-		return 0
-	}
-
-	return int(num)
+// 轉換 文字轉數字 32位元
+func StringToInt(info string) int {
+	tmp, _ := strconv.Atoi(info)
+	return tmp
 }
 
-func ToInt64(str string) int64 {
-	num, err := strconv.ParseFloat(str, 64)
-	if err != nil {
-		return 0
-	}
-	return int64(num)
+// 轉換 文字轉數字 64位元
+func StringToInt64(info string) int64 {
+	tmp, _ := strconv.ParseInt(info, 10, 64)
+	return tmp
 }
 
-func ToInt32(str string) int32 {
-	num, err := strconv.ParseFloat(str, 32)
+// 轉換 文字轉小數點
+func StringToDecimal(info string) decimal.Decimal {
+	tmp, _ := decimal.NewFromString(info)
+	return tmp
+}
+
+func StructToJsonString(structt interface{}) (jsonString string, err error) {
+	data, err := json.Marshal(structt)
 	if err != nil {
-		return 0
+		return "", err
 	}
-	return int32(num)
+	return string(data), nil
+}
+
+func InterfaceToString(x interface{}) string {
+	tmp := fmt.Sprintf("%v", x)
+	return tmp
 }
 
 func ToBool(str string) bool {
@@ -321,7 +310,7 @@ func CoverStringToInt64Array(str string, sep string, needSpace bool) (arr []int6
 		if v == "" && !needSpace {
 			continue
 		}
-		arr = append(arr, ToInt64(v))
+		arr = append(arr, StringToInt64(v))
 	}
 	return
 }
@@ -454,7 +443,7 @@ func ConvertString2Int32Arr(str, sep string) (d []int32) {
 		if a == "" {
 			continue
 		}
-		d = append(d, int32(ToInt(a)))
+		d = append(d, int32(StringToInt(a)))
 	}
 	return
 }
@@ -468,7 +457,7 @@ func ConvertString2Int64Arr(str, sep string) (d []int64) {
 		if a == "" {
 			continue
 		}
-		d = append(d, ToInt64(a))
+		d = append(d, StringToInt64(a))
 	}
 	return
 }
@@ -482,7 +471,7 @@ func ConvertString2IntArr(str, sep string) (d []int) {
 		if a == "" {
 			continue
 		}
-		d = append(d, ToInt(a))
+		d = append(d, StringToInt(a))
 	}
 	return
 }

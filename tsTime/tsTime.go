@@ -35,6 +35,32 @@ func TimeNow19() int64 {
 	return time.Now().UnixNano()
 }
 
+// 時間轉換 時間戳轉日期時間
+func TimestampToDatetime(timestamp int64) string {
+	nt := time.Unix(timestamp, 0)
+	const base_format = "2006-01-02 15:04:05"
+	return nt.Format(base_format)
+}
+
+// 時間轉換 時間戳轉日期
+func TimestampToDate(timestamp int64) string {
+	nt := time.Unix(timestamp, 0)
+	const base_format = "2006-01-02"
+	return nt.Format(base_format)
+}
+
+// 時間轉換 日期時間轉時間戳
+func DatetimeToTimestamp(datetime string) int64 {
+	const base_format = "2006-01-02 15:04:05"
+	temp, _ := time.Parse(base_format, datetime)
+	return temp.Unix()
+}
+
+func StringToTime(info string) time.Time {
+	tmp := time.Unix(tsString.StringToInt64(info[:10]), 0)
+	return tmp
+}
+
 func CurrMsToString() string {
 	return tsString.FromInt64(TimeNow13())
 }
