@@ -1,4 +1,4 @@
-package tsfloat
+package tsFloat
 
 import (
 	"fmt"

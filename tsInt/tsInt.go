@@ -1,4 +1,4 @@
-package tsint
+package tsInt
 
 import "strconv"
 
