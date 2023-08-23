@@ -1,4 +1,4 @@
-module tsEngine
+module tsEngines
 
 go 1.20
 

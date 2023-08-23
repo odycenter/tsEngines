@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"tsEngine/tsFuzzy"
-	"tsEngine/tsMap"
+	"tsEngines/tsFuzzy"
+	"tsEngines/tsMap"
 	"unicode"
 	"unicode/utf8"
 

@@ -1,4 +1,4 @@
-package tsdecimal
+package tsDecimal
 
 import "github.com/shopspring/decimal"
 

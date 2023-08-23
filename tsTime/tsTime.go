@@ -3,7 +3,7 @@ package tsTime
 import (
 	"fmt"
 	"time"
-	"tsEngine/tsString"
+	"tsEngines/tsString"
 )
 
 // 現在時間 (伺服器時區)

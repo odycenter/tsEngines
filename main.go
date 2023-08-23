@@ -1,11 +1,12 @@
 package main
 
 import (
-	_ "tsEngine/tsFuzzy"
-	_ "tsEngine/tsMap"
-	_ "tsEngine/tsSlice"
-	_ "tsEngine/tsString"
-	_ "tsEngine/tsTime"
+	_ "tsEngines/tsDecimal"
+	_ "tsEngines/tsFuzzy"
+	_ "tsEngines/tsMap"
+	_ "tsEngines/tsSlice"
+	_ "tsEngines/tsString"
+	_ "tsEngines/tsTime"
 )
 
 func main() {
