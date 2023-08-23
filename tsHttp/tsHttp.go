@@ -1,4 +1,4 @@
-package tshttp
+package tsHttp
 
 import (
 	"fmt"
