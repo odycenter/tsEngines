@@ -1,4 +1,4 @@
-module tsEngines
+module github.com/odycenter/tsEngines
 
 go 1.20
 

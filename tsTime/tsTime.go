@@ -3,7 +3,7 @@ package tsTime
 import (
 	"fmt"
 	"time"
-	"tsEngines/tsString"
+	"github.com/odycenter/tsEngines/tsString"
 )
 
 // 現在時間 (伺服器時區)

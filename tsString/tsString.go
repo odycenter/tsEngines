@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"tsEngines/tsFuzzy"
-	"tsEngines/tsMap"
+	"github.com/odycenter/tsEngines/tsFuzzy"
+	"github.com/odycenter/tsEngines/tsMap"
 	"unicode"
 	"unicode/utf8"
 
