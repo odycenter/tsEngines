@@ -1,7 +1,6 @@
 package tsHttp
 
 import (
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -26,6 +25,5 @@ func SendHttpRequest(method string, url string, param []string) (sitemap []byte,
 		log.Fatal(err)
 		return
 	}
-	fmt.Printf("%s", sitemap)
 	return
 }
