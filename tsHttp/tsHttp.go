@@ -14,6 +14,8 @@ func SendHttpRequest(method string, url string, param []string) (sitemap []byte,
 		return
 	}
 	req.Header.Add("If-None-Match", `W/"wyzzy"`)
+	req.Header.Add("Accept", "application/json")
+	req.Header.Add("Content-Type", "application/json")
 	resp, err := client.Do(req)
 	if err != nil {
 		log.Println(err)
